@@ -1,6 +1,6 @@
 # JavaScript
 
-Objects in JavaScript are just bags of properties. Properties are inherited from the prototype the object belongs to.
+**Objects in JavaScript are just bags of properties. Properties are inherited from the prototype the object belongs to.**
 
 ### ```function``` 
 
@@ -34,7 +34,7 @@ class Dog {
 
 }
 
-var = dog = new Dog();
+var dog = new Dog();
 ```
 
 JavaScript classes are a type of ```function```.
@@ -69,6 +69,37 @@ This can be displayed by:
 ```
 var fido = new Dog();
 console.log(fido);
+```
+
+### ```var```
+
+Within a function ```var``` creates a local variable, "no var" will look up the scope chain until it finds the invariable or hits the global scope (at which point it will create it):
+
+```
+// These are both globals
+var foo = 1;
+bar = 2;
+
+function()
+{
+    var foo = 1; // Local
+    bar = 2;     // Global
+
+    // Execute an anonymous function
+    (function()
+    {
+        var wibble = 1; // Local
+        foo = 2; // Inherits from scope above (creating a closure)
+        moo = 3; // Global
+    }())
+}
+```
+
+### JavaScript Conventions
+
+- thisIsCamelCase not underscores
+
+- no ? at the end of the method, put 'is' at the beginning 
 
 ### JavaBuzz
 
