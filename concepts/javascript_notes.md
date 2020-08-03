@@ -162,5 +162,8 @@ if(animals.indexOf('cow') > -1 {
 - close your brackets once they are opened
 - parentheses around conditionals are not necessary but recommended
 
+### Debugging Tips
+- use ```console.log()``` to print stuff, also use the Console tab of the Chrome developer tools
+
 
 
