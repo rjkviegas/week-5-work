@@ -186,6 +186,25 @@ There are only six falsey values in JavaScript:
 - Duplicating a parameter name
 - The ```this``` keyword in functions refers to the object that called the function. If the object is not specified, functions in ```strict``` mode will return ```undefined``` and functions in normal mode will return the global object (window)
 
+### Jasmine
+
+#### Examples
+```
+expect(airport.planes()).toContain(plane);
+expect(airport.planes()).toEqual([]);
+expect(airport.clearForLanding).toHaveBeenCalledWith(plane);
+expect(airport.isStormy()).toBeFalsy();
+
+expect(function() { plane.takeOff(); }).toThrowError('cannot take off during storm');
+```
+
+##### Spies
+```
+airport = jasmine.createSpyObj('airport', ['clearForLanding', 'clearForTakeOff']); // double
+spyOn(airport, 'isStormy').and.returnValue(true); // stub
+```
+
+
 
 
 
