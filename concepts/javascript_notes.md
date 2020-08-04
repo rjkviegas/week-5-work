@@ -2,6 +2,20 @@
 
 **Objects in JavaScript are just bags of properties. Properties are inherited from the prototype the object belongs to.**
 
+In a nutshell, Object in JavaScript is just key-value pairs stored in a Hash. The difference between property and a method is that -- a property is a **value** stored in the hash key, whereas method is a **function** stored in hash key.
+```
+var person = {
+  name: "John Doe",
+  sayHello: function() {
+        console.log("hello");
+  }
+}
+```
+In this code sample.
+
+```name``` is the property of object ```person```, it stored String "John Doe", you can access it via dot notation ```person.name```.
+```sayHello``` is the method of object, and it is a function. You can also access it using dot notation ```person.sayHello()```. Notice that sayHello is just a function, and function invocation requires you to use () here.
+
 ### ```function``` 
 
 ```function``` is a keyword.
@@ -199,13 +213,13 @@ expect(function() { plane.takeOff(); }).toThrowError('cannot take off during sto
 ```
 
 ##### Spies
+
+Jasmine has test double functions called spies. 
+A spy can stub any function and tracks calls to it and all arguments. 
+A spy only exists in the describe or it block in which it is defined, and will be removed after each spec.
+
 ```
-airport = jasmine.createSpyObj('airport', ['clearForLanding', 'clearForTakeOff']); // double
-spyOn(airport, 'isStormy').and.returnValue(true); // stub
+airport = jasmine.createSpyObj('airport'); // bare spy
+airport = jasmine.createSpyObj('airport', ['clearForLanding', 'clearForTakeOff']); // mocking using object with multiple properties
+spyOn(airport, 'isStormy').and.returnValue(true); // 
 ```
-
-
-
-
-
-
