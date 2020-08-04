@@ -157,6 +157,15 @@ if(animals.indexOf('cow') > -1 {
   alert('Mooo');
 })
 ```
+### Falsy
+
+There are only six falsey values in JavaScript:
+1. ```undefined```
+2. ```null``` 
+3. ```NaN```
+4. ```0```
+5. ```""``` (empty string)
+6. ```false```
 
 **Good Practice**
 - close your brackets once they are opened
@@ -164,6 +173,20 @@ if(animals.indexOf('cow') > -1 {
 
 ### Debugging Tips
 - use ```console.log()``` to print stuff, also use the Console tab of the Chrome developer tools
+
+### Miscellaneous
+
+```"use strict";``` Defines that JavaScript code should be executed in "strict mode". ***It helps you to write cleaner code.***
+
+#### Not Allowed In ```'use strict';``` mode:
+- Using a variable, without declaring it
+- Using an object, without declaring it
+- Deleting a variable (or object)
+- Deleting a function
+- Duplicating a parameter name
+- The ```this``` keyword in functions refers to the object that called the function. If the object is not specified, functions in ```strict``` mode will return ```undefined``` and functions in normal mode will return the global object (window)
+
+
 
 
 
