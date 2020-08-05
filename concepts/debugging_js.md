@@ -14,7 +14,7 @@ The two concepts were:
 
 Getting visibility is the practice of looking at data in the variables in the code we are trying to understand. The actual value of a variable at a point in the code can be checked against the desired/expected value.
 
-Similarly by printing (using ```console.log()```) an object's properties and/or the functions contained within a method, the coder can see what is being acvtually produced and executed by the code at points of the code at their own choosing, and compare them to what is desired/expected.
+Similarly by printing (using ```console.log()```) an object's properties, parameters, and/or the functions return calls, the coder can see what is being actually produced and executed by the code at points of the code at their own choosing, and compare them to what is desired/expected.
 
 A coder could also use ```console.log()``` to print the ```this``` keyword and differing points of the program to find out it's value.
 
