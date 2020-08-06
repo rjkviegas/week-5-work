@@ -20,7 +20,7 @@ In this code sample.
 
 ```function``` is a keyword.
 
-```function``` creates an object that can be **called/invoked**. This object is a new Function object. A function is an object that can be invoked.
+```function``` creates an object that can be **called/invoked**. This object is a new Function object. A function is an object that can be invoked. The case of function names in JavaScript has no effect on how they run.
 
 Example of JavaScript function object:
 ```
@@ -68,7 +68,7 @@ var dog = new Dog();
 
 JavaScript classes are a type of ```function```.
 
-#### Initialization
+#### Constructor
 
 Use a ```constructor``` method to 'initialize' an object with an instance variable:
 ```
@@ -81,6 +81,53 @@ class Dog {
 var frank = new Dog('Sausage')
 ```
 Inside the function, ```this``` is the newly created object.
+
+##### Example from [Skill Workshop](https://github.com/rjkviegas/skills-workshops/blob/master/week-5/encapsulation_with_constructor_and_prototype_pattern/exemplar_dont_read_until_after_workshop/questions.md)
+```
+function Thing() {
+  // these three lines are run automatically by JS because the `new`
+  // keyword was used, even though they don't appear in your code:
+  // var thing = {};
+  // thing.__proto__ = Thing.prototype;
+  // return thing;
+};
+
+Thing.prototype.setName = function(name) {
+  this._name = name;
+}
+
+var thing = new Thing();
+thing.setName("Isla");
+```
+
+What's cool is all three lines inside the constructor above happen automatically.
+
+When thing.setName("Isla") is run, JavaScript finds out which setName to run. It looks first on thing itself and finds nothing. Then it looks on the object at thing.__proto__. thing.__proto__ points at the Thing.prototype object. So JavaScript finds the setName function and runs it. This is the essence of prototypal inheritance.
+
+Imagine we change the code to this:
+```
+function Thing() {
+  // these three lines are run automatically by JS because the `new`
+  // keyword was used, even though they don't appear in your code:
+  // var thing = {};
+  // thing.__proto__ = Thing.prototype;
+  // return thing;
+};
+
+Thing.prototype.setName = function(name) {
+  this._name = name;
+}
+
+var thing = new Thing();
+
+// we've added these three lines of code:
+thing.setName = function(name) {
+  return "WHATEVER you're not the boss of me";
+};
+
+thing.setName("Isla");
+```
+When the prototypal lookup happens, it first checks thing itself and immediately finds a setName() function. This is the one it calls, so it never sees the one on Thing.prototype.
 
 #### Method
 
